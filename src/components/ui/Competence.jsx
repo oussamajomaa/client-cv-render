@@ -1,13 +1,14 @@
 
 import React, { useEffect, useState } from 'react'
 
-const url = "https://api-render-2.onrender.com"
+// const url = "https://api-render-2.onrender.com"
+const url = "http://localhost:3333"
 export default function Competence() {
     const [competences,setCompetences] = useState([])
     async function fetchCompetence(){
-        // const response = await fetch('http://localhost:3333/competence')
         const response = await fetch(`${url}/competence`)
         const data = await response.json()
+        console.log(data);
         setCompetences(data)
     }
 

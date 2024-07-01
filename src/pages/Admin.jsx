@@ -9,6 +9,7 @@ import { Navigate, useNavigate } from 'react-router-dom';
 import { IoMdArrowRoundForward } from "react-icons/io";
 import Login from './Login';
 import { useState } from 'react';
+import AdminCompetence from '../components/admin/AdminCompetence';
 
 const url = "https://api-render-2.onrender.com"
 
@@ -51,8 +52,10 @@ export default function Admin() {
         <div className="flex gap-5 p-5 max-md:flex-col">
 
             <div className='flex flex-col gap-5 w-1/3 max-md:w-full'>
-            
+                <h2 className="text-4xl text-center text-white bg-blue-600 p-2 rounded-3xl">CONTACT</h2>
                 <AdminContact />
+                <h2 className="text-4xl text-center text-white bg-blue-600 p-2 rounded-3xl">COMPETENCES</h2>
+                <AdminCompetence />
                 {/* <AdminSkill />
                 <AdminLangue />
                 <AdminLoisir /> */}

@@ -1,29 +1,28 @@
-import { useEffect, useState } from "react";
-const BASE_URL = "http://localhost:5555"
+import React, { useEffect, useState } from 'react'
+const url = "http://localhost:3333"
 
 export default function Langue() {
-    const [langue, setLangue] = useState([])
-    const fetchLangue = async () => {
-        const response = await fetch(`${BASE_URL}/langue`)
+    const [langues,setLangues] = useState([])
+    async function fetchLangue(){
+        const response = await fetch(`${url}/langue`)
         const data = await response.json()
-        setLangue(data)
+        setLangues(data)
     }
-
-    useEffect(() => {
+    useEffect(()=>{
         fetchLangue()
-    }, [])
-    return (
-        <div>
-            <h2 className='text-2xl text-center font-bold bg-[#313B6D] rounded-lg p-1 text-white mb-5'>Langues</h2>
-            <table>
-                <tbody>
-                    {langue && langue.map(item =>
-                        <tr key={item._id}>
-                            <th>{item.name}</th>
-                            <td>{item.level}</td>
-                        </tr>)}
-                </tbody>
-            </table>
-        </div>
-    )
+    },[])
+  return (
+    <div>
+        <h2 className="text-4xl text-center text-white bg-blue-600 p-2 rounded-3xl">LANGUE</h2>
+        <table>
+            {langues.map(langue => 
+                <tr>
+                    <td>{langue.name}</td>
+                    <td>{langue.level}</td>
+                     
+                </tr>
+            )}
+        </table>
+    </div>
+  )
 }

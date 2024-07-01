@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { LiaSaveSolid } from 'react-icons/lia'
 
-const url = "https://api-render-2.onrender.com"
-
+// const url = "https://api-render-2.onrender.com"
+const url = "http://localhost:3333"
 export default function AdminContact() {
     const [nom, setNom] = useState('')
     const [prenom, setPrenom] = useState('')
@@ -11,7 +11,6 @@ export default function AdminContact() {
     const [adresse, setAdresse] = useState('')
 
     async function fetchContact() {
-        // const response = await fetch('http://localhost:3333/contact')
         const response = await fetch(`${url}/contact`)
         const data = await response.json()
         setNom(data[0].nom)

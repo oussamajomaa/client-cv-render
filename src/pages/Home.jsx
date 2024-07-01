@@ -14,6 +14,7 @@ export default function Home() {
             <div className='flex flex-col gap-5 w-1/3 max-md:w-full'>
                 <Contact />
                 <Competence />
+                <Langue />
                 
             </div>
             <div className='flex flex-col gap-5 w-2/3 max-md:w-full'>
