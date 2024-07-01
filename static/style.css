@@ -1,0 +1,81 @@
+main {
+    display: flex;
+    gap: 20px;
+}
+
+#left-side {
+    width: 30%;
+    padding-top: 20px;
+}
+
+#right-side {
+    width: 70%;
+    padding-top: 20px;
+}
+
+.section-avatar h1 {
+    text-align: center;
+ 
+
+}
+
+.section-avatar img {
+    width: 200px;
+    border-radius: 50%;
+    display: block;
+    margin: auto;
+    border: 5px solid black;
+}
+
+
+
+.post {
+    font-weight: 600;
+}
+
+
+table {
+    border-spacing: 10px;
+}
+
+
+p,
+h1,
+h2,
+h3,
+ul,
+li,
+table,
+tr,
+td,
+input {
+    margin: 0;
+
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+ul {
+    margin-top: 20px;
+}
+
+h1, .title {
+    text-align: center;
+    font-size: 36px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+
+.sub-title {
+    padding: 10px;
+    background: rgb(35, 45, 65);
+    color: white;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}

@@ -1,0 +1,291 @@
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+ul,
+tr,
+td,
+th,
+p {
+  padding-top: 0;
+  padding-bottom: 0;
+  margin: 0;
+}
+
+/* Le conteneur principal et admin*/
+.container, .admin {
+  display: flex;
+  gap: 1rem;
+  box-sizing: border-box;
+}
+
+/* Lien vers la page admin */
+.container .link, .admin .link {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: aliceblue;
+  text-decoration: none;
+  padding: 8px;
+  display: inline;
+  display: block;
+  text-align: center;
+  margin: auto;
+  border-radius: 5px;
+  background-color: indianred;
+}
+
+/* côté gauche de la page principale */
+.left-side {
+  padding: 1rem;
+  width: 35%;
+  background-color: rgb(230, 230, 230);
+}
+
+/* photo */
+.avatar img {
+  width: 200px;
+  display: block;
+  margin: auto;
+  margin-bottom: 1rem;
+}
+
+.avatar h2 {
+  text-align: center;
+}
+
+li,
+th,
+td {
+  padding: 5px;
+}
+
+/* ajouter une ligne pour séparer chaque formation ou experience des autres */
+.block {
+  border-bottom: 1px solid gray;
+  padding: 1rem;
+}
+
+/* afficher les labels et les contenus des formations et experiences à côté */
+.block .exp-formation {
+  display: flex;
+  align-items: center;
+
+}
+
+.block .exp-formation h4 {
+  width: 150px;
+}
+
+
+
+table th {
+  text-align: left;
+  padding-right: 2rem;
+}
+
+.right-side {
+  padding: 1rem;
+  width: 65%;
+}
+
+/* Le titre principal */
+.right-side h1 {
+  text-align: center;
+  font-size: 42px;
+  margin: 2rem;
+}
+
+.right-side .block {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* les titres de niveau 2 */
+.title {
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  padding: 10px;
+  background-color: #313B6D;
+  color: aliceblue;
+  border-radius: 10px;
+}
+
+
+/* ************************************ page 404************************************ */
+.page404 {
+  width: 80%;
+  margin: auto;
+  margin-top: 5rem;
+  padding: 5rem;
+  background-color: indianred;
+  border-radius: 5px;
+}
+
+.page404 h1 {
+  text-align: center;
+  color: white;
+}
+
+.page404 h2 {
+  text-align: center;
+  color: white;
+}
+
+.page404 a {
+  color: aliceblue;
+  text-decoration: none;
+  padding: 1rem;
+  display: inline;
+  display: block;
+  width: 200px;
+  text-align: center;
+  margin: auto;
+  border: 1px solid white;
+  border-radius: 5px;
+}
+
+.page404 a:hover {
+  color: indianred;
+  background-color: aliceblue;
+}
+
+.page404 img {
+  width: 100px;
+  border-radius: 50%;
+  display: block;
+  margin: auto;
+}
+/* ************************************ fin page 404************************************ */
+
+
+
+
+
+
+
+/* ************************************ Admin page style ************************************ */
+
+/* diviser la page en trois colonne */
+.admin{
+  width: 100%;
+  display: flex;
+  padding: 1rem;
+  gap: 1rem;
+  justify-content: space-evenly;
+}
+.admin .row{
+  display: flex;
+  gap: 2rem;
+  align-items: flex-end;
+  flex-direction: column;
+}
+
+.admin .col{
+  width:45%;
+}
+
+/* Les titres de niveau2 dans la page admin */
+.admin h2{
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  border-radius: 10px;
+  text-align: center;
+}
+.admin label {
+  display: inline-block;
+  width: 100px;
+}
+
+/* .admin input, .admin select {
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 5px;
+} */
+
+.admin p{
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 1px solid gray;
+}
+.contact, .competence, .langue{
+  padding: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  border-radius: 10px;
+  width: 100%;
+}
+
+/* .admin-contact input{
+  padding: 10px;
+  width: calc(100% - 100px);
+  box-sizing: border-box;
+  border-radius: 5px;
+} */
+
+.admin button{
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: white;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+
+.admin-competence {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.admin-contact {
+  margin-bottom: 10px;
+}
+
+.add-btn {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.flex-end{
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+.add-skill{
+  margin-bottom: 5px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.btn-save-close{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  
+}
+
+.flex-add{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+/* .admin-input{
+  background-color: white;
+  border:2px solid rgb(56, 131, 201);
+} */
+
+
+
