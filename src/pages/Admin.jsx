@@ -11,51 +11,41 @@ import Login from './Login';
 import { useState } from 'react';
 import AdminCompetence from '../components/admin/AdminCompetence';
 
-const url = "https://api-render-2.onrender.com"
+
 
 export default function Admin() {
     const [username, setUsername] = useState('')
-	const [password, setPassword] = useState('')
-	const [logged, setLogged] = useState(false)
-    const navigate = useNavigate();
-    const logout = async () => {
-        console.log('logout')
-        const response = await fetch(`${url}/logout`, {
-            method: 'POST',
-            credentials: 'include'
-        })
-        if (response.ok) {
-            localStorage.removeItem('token')
-            navigate("/")
-        }
-    }
+    const [password, setPassword] = useState('')
+    const [isLogged, setIsLogged] = useState(false)
 
-
-    const handleSubmit = (e) =>{
+    function handleSubmit(e) {
         e.preventDefault()
         if (username === "osm" && password === "osm") {
-            setLogged(true)
+            setIsLogged(true)
+        } else {
+            alert('les identifiants sont incorrects')
         }
     }
 
-    // if (!logged) {
-    //     return (
-    //         <Login 
-    //             username={username} 
-    //             password={password} 
-    //             setUsername={(e)=>setUsername(e.target.value)} 
-    //             setPassword={(e)=>setPassword(e.target.value)} 
-    //             handleSubmit={handleSubmit} />
-    //     )
-    // }
+    if (!isLogged) {
+        return (
+            <Login
+                
+                setUsername={(e) => setUsername(e.target.value)}
+                setPassword={(e) => setPassword(e.target.value)}
+                handleSubmit={handleSubmit}
+            />
+        )
+    }
+
     return (
         <div className="flex gap-5 p-5 max-md:flex-col">
 
             <div className='flex flex-col gap-5 w-1/3 max-md:w-full'>
-                <h2 className="text-4xl text-center text-white bg-blue-600 p-2 rounded-3xl">CONTACT</h2>
+
                 <AdminContact />
-                <h2 className="text-4xl text-center text-white bg-blue-600 p-2 rounded-3xl">COMPETENCES</h2>
                 <AdminCompetence />
+                <AdminLangue />
                 {/* <AdminSkill />
                 <AdminLangue />
                 <AdminLoisir /> */}
@@ -64,7 +54,7 @@ export default function Admin() {
                 {/* <AdminExperience />
                 <AdminFormation /> */}
                 <div className='flex justify-end '>
-                <button className=" btn" onClick={logout}>page d'accueil <IoMdArrowRoundForward /></button>
+                    {/* <button className=" btn" onClick={logout}>page d'accueil <IoMdArrowRoundForward /></button> */}
                 </div>
             </div>
         </div>

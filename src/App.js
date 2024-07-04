@@ -4,8 +4,8 @@ import './App.css';
 import Home from './pages/Home';
 import Admin from './pages/Admin';
 import Page404 from './pages/Page404';
-import { SnackbarProvider } from 'notistack';
 import Login from './pages/Login';
+import { SnackbarProvider } from 'notistack';
 
 function App() {
 	return (

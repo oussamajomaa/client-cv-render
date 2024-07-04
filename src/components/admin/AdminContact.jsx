@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { LiaSaveSolid } from 'react-icons/lia'
+import { TfiSave } from "react-icons/tfi";
 
 // const url = "https://api-render-2.onrender.com"
 const url = "http://localhost:3333"
@@ -39,34 +39,37 @@ export default function AdminContact() {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <div className=''>
-                <label>Tel</label>
-                <input
-                    className="input input-bordered input-primary w-full"
-                    type="text"
-                    value={tel}
-                    onChange={(e) => setTel(e.target.value)} />
-            </div>
-            <div className=''>
-                <label>Email</label>
-                <input
-                    className="input input-bordered input-primary w-full"
-                    type="text"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)} />
-            </div>
-            <div className=''>
-                <label>Adresse</label>
-                <input
-                    className="input input-bordered input-primary w-full"
-                    type="text"
-                    value={adresse}
-                    onChange={(e) => setAdresse(e.target.value)} />
-            </div>
-            <button className='btn btn-sm my-2 btn-outline-success'>
-                <LiaSaveSolid color='green' size={24} />
-            </button>
-        </form>
+        <div>
+            <h2 className="text-4xl text-center text-white bg-blue-600 p-2 rounded-3xl mb-3">CONTACT</h2>
+            <form onSubmit={handleSubmit}>
+                <div className='my-3'>
+                    <label>Tel</label>
+                    <input
+                        className="input input-bordered input-primary w-full"
+                        type="text"
+                        value={tel}
+                        onChange={(e) => setTel(e.target.value)} />
+                </div>
+                <div className='my-3'>
+                    <label>Email</label>
+                    <input
+                        className="input input-bordered input-primary w-full"
+                        type="text"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)} />
+                </div>
+                <div className='my-3'>
+                    <label>Adresse</label>
+                    <input
+                        className="input input-bordered input-primary w-full"
+                        type="text"
+                        value={adresse}
+                        onChange={(e) => setAdresse(e.target.value)} />
+                </div>
+                <button className='btn btn-sm my-2 btn-outline-success'>
+                    <TfiSave color='green' size={24} />
+                </button>
+            </form>
+        </div>
     )
 }

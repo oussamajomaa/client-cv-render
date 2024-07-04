@@ -9,9 +9,9 @@ import Loisir from '../components/ui/Loisir';
 
 export default function Home() {
     return (
-        <div className="flex gap-5 p-5 max-md:flex-col">
+        <div className="flex gap-5 p-5 max-md:flex-col ">
             {/* <Link className='link' to={'/admin'}>ADMIN</Link> */}
-            <div className='flex flex-col gap-5 w-1/3 max-md:w-full'>
+            <div className='flex flex-col gap-5 w-1/3 max-md:w-full bg-slate-200 p-5'>
                 <Contact />
                 <Competence />
                 <Langue />

@@ -1,125 +1,111 @@
-import { useState, useEffect } from 'react';
-import { enqueueSnackbar } from 'notistack';
+import { useEffect, useState } from "react";
 import { MdDelete } from "react-icons/md";
-import { LiaSaveSolid } from "react-icons/lia";
-import { MdAddBox } from "react-icons/md";
-import { IoCloseCircle } from "react-icons/io5";
+import { IoMdAddCircle } from "react-icons/io";
+import { MdCancel } from "react-icons/md";
+import { TfiSave } from "react-icons/tfi";
 
-const BASE_URL = "http://localhost:5555"
-
+const url = 'http://localhost:3333'
 export default function AdminLangue() {
-    const [langue, setLangue] = useState([])
-    const [name, setName] = useState('')
-    const [level, setLevel] = useState('')
-    const [add, setAdd] = useState(false)
+    const [langues, setLangues] = useState([])
+    const [name,setName]= useState('')
+    const [level,setLevel]=useState('')
+    const [isAdd,setIsAdd]=useState(false)
 
-    const fetchLangue = async () => {
-        const response = await fetch(`${BASE_URL}/langue`)
+    async function fetchLangue() {
+        const response = await fetch(`${url}/langue`)
         const data = await response.json()
-        setLangue(data)
+        setLangues(data)
     }
 
     useEffect(() => {
         fetchLangue()
     }, [])
 
-    const handleDelete = async (id) => {
-        const response = await fetch(`${BASE_URL}/langue/${id}`, {
-            method: 'DELETE',
-        })
-        if (response.ok) {
-            const data = await response.json()
-            enqueueSnackbar(data.message, {
-                variant: 'warning', autoHideDuration: 2000, anchorOrigin: {
-                    horizontal: 'center',
-                    vertical: 'top',
-                }
-            })
-            fetchLangue()
-        }
-
-    }
-
-    const handleAdd = async () => {
-        setAdd(true)
-
-    }
-
-    function handleClose() {
-        setAdd(false)
-        setName('')
-        setLevel('')
-    }
-
-    const handleSave = async () => {
-        const response = await fetch(`${BASE_URL}/langue`, {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ name, level })
+    async function handleDelete(id) {
+        const response = await fetch(`${url}/langue/${id}`, {
+            method: 'DELETE'
         })
 
         if (response.ok) {
             const data = await response.json()
-            enqueueSnackbar(data.message, {
-                variant: 'success', autoHideDuration: 2000, anchorOrigin: {
-                    horizontal: 'center',
-                    vertical: 'top',
-                }
-            })
             fetchLangue()
-            setAdd(false)
-            setName('')
-            setLevel('')
         }
     }
+
+    const addLangue = () => {
+        setIsAdd(true)
+    }
+
+    async function handleSave(){
+        if (name !== "" && level !== ""){
+            const response = await fetch(`${url}/langue`,{
+                method:'POST',
+                headers:{
+                    'Content-Type':'application/json'
+                },
+                body: JSON.stringify({name,level})
+            })
+            if (response.ok){
+                const data = await response.json()
+                fetchLangue()
+                setName("")
+                setLevel("")
+            }
+        }
+
+    }
+
+    function handleCancel(){
+        setIsAdd(false)
+    }
+
     return (
-        <div className='shadow-xl p-5 rounded-xl'>
-            <div className='flex justify-center gap-3 items-center mb-3'>
-                <h2 className='text-2xl text-center font-bold '>Langues</h2>
-                {!add &&
-                    <button onClick={handleAdd}>
-                        <MdAddBox color='blue' size={20} />
-                    </button>
-                }
-            </div>
-            {add &&
-                <div className='flex gap-3 mt-3'>
-                    <input
-                        className="mb-2 input input-bordered input-success w-full "
-                        placeholder='Ajouter une langue'
-                        type='text'
-                        value={name}
-                        onChange={(e) => { setName(e.target.value) }} />
-                    
-                    <select
-                        className="mb-2 input input-bordered input-success w-full "
-                        value={level}
-                        onChange={(e) => { setLevel(e.target.value) }}>
-                        <option disabled value="" >Sélectionner le niveau</option>
-                        <option value="Langue maternelle">Langue maternelle</option>
-                        <option value="Courant">Courant</option>
-                        <option value="Intermédiaire">Intermédiaire</option>
-                        <option value="Débutant">Débutant</option>
-                    </select>
-                    <div className='btn-save-close'>
-                        <button onClick={handleClose}><IoCloseCircle color='#E91E63' size={20} /></button>
-                        <button onClick={handleSave}><LiaSaveSolid color='green' size={20} /></button>
-                    </div>
-                </div>
-            }
+        <div>
+            <h2 className="text-4xl text-center text-white bg-blue-600 p-2 rounded-3xl mb-2">LANGUE</h2>
 
-            {langue && langue.map(item =>
-                <div className='flex justify-between mb-3 shadow' key={item._id}>
-                    <div className='flex w-4/5'>
-                        <p className='w-1/2'>{item.name}</p>
-                        <p className='w-1/2'>{item.level}</p>
-                    </div>
-                    <button><MdDelete color='#E91E63' size={20} onClick={() => handleDelete(item._id)} /></button>
-                </div>)
-            }
+            {!isAdd && <button onClick={addLangue} className='btn'>
+                <IoMdAddCircle size={24} color='blue' title='Ajouter' />
+            </button>}
 
+            {isAdd && <div className='flex gap-2'>
+
+                <input
+                    placeholder='Ajouter une nouvelle compétence'
+                    className="input input-bordered input-primary w-full"
+                    type="text"
+                    value={name}
+                    onChange={(e)=>setName(e.target.value)}/>
+
+                <select 
+                    className="select select-secondary w-full max-w-xs" 
+                    onChange={(e)=>setLevel(e.target.value)} defaultValue={level}>
+                    <option selected hidden defaultValue="">Choisir le niveau</option>
+                    <option value="Débutant">Débutant</option>
+                    <option value="Intermédiaire">Intermédiaire</option>
+                    <option value="Avancé">Avancé</option>
+                    <option value="Maternel">Maternel</option>
+                </select>
+
+                <button onClick={handleSave}>
+                    <TfiSave color='green' size={24} title='Sauvegarder' />
+                </button>
+                <button onClick={handleCancel}>
+                    <MdCancel color='gray' title='Annuler' size={24} />
+                </button>
+            </div>}
+            <table className="w-full">
+                <tbody>
+                    {langues.map(item =>
+                        <tr key={item._id}>
+                            <th className="p-2">{item.name}</th>
+                            <td className="p-2">{item.level}</td>
+                            <td>
+                                <button onClick={() => handleDelete(item._id)} className="btn"><MdDelete size={24} color="red" /></button>
+                            </td>
+                        </tr>
+                    )}
+                </tbody>
+            </table>
         </div>
     )
 }
