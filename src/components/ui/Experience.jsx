@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
-const BASE_URL = "http://localhost:5555"
+// const BASE_URL = "http://localhost:5555"
+import { BASE_URL } from "../Url";
+
 export default function Experience() {
     const [experience, setExperience] = useState([])
     async function fetchExperience() {
