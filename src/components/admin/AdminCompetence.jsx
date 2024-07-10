@@ -4,15 +4,16 @@ import { IoMdAddCircle } from "react-icons/io";
 import { MdCancel } from "react-icons/md";
 import { TfiSave } from "react-icons/tfi";
 import { enqueueSnackbar } from 'notistack';
+import { BASE_URL } from "../Url";
 
-const url = "http://localhost:3333"
+// const url = "http://localhost:3333"
 
 export default function AdminCompetence() {
   const [competences, setCompetences] = useState([])
   const [skill, setSkill] = useState('')
   const [isAdd, setIsAdd] = useState(false)
   async function fetchCompetence() {
-    const response = await fetch(`${url}/competence`)
+    const response = await fetch(`${BASE_URL}/competence`)
     const data = await response.json()
     setCompetences(data)
   }
@@ -22,7 +23,7 @@ export default function AdminCompetence() {
   }, [])
 
   async function handleDelete(id) {
-    const response = await fetch(`${url}/competence/${id}`, {
+    const response = await fetch(`${BASE_URL}/competence/${id}`, {
       method: 'DELETE'
     })
 
@@ -42,7 +43,7 @@ export default function AdminCompetence() {
 
   async function handleSave() {
     if (skill !== "") {
-      const response = await fetch(`${url}/competence`, {
+      const response = await fetch(`${BASE_URL}/competence`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

@@ -4,7 +4,8 @@ import { MdDelete } from "react-icons/md";
 import { LiaSaveSolid } from "react-icons/lia";
 import { MdAddBox } from "react-icons/md";
 import { IoCloseCircle } from "react-icons/io5";
-const BASE_URL = "http://localhost:5555"
+// const BASE_URL = "http://localhost:5555"
+import { BASE_URL } from "../Url";
 
 export default function AdminExperience() {
 	const [experience, setExperience] = useState([])

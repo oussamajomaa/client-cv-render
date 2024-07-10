@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-const BASE_URL = "http://localhost:5555"
+import { BASE_URL } from "../Url";
+// const BASE_URL = "http://localhost:5555"
 export default function Formation() {
     const [formation, setFormation] = useState([])
     async function fetchFormation() {
@@ -11,10 +12,11 @@ export default function Formation() {
     useEffect(() => {
         fetchFormation()
     }, [])
+    
     return (
         <div>
             <h2 className='text-2xl text-center font-bold bg-[#313B6D] rounded-lg p-1 text-white mb-5'>Formations</h2>
-
+            <p>hello</p>
             {formation && formation.map(item =>
                 <div key={item._id} className='block'>
                     <div className='exp-formation'>

@@ -3,8 +3,9 @@ import { MdDelete } from "react-icons/md";
 import { IoMdAddCircle } from "react-icons/io";
 import { MdCancel } from "react-icons/md";
 import { TfiSave } from "react-icons/tfi";
+import { BASE_URL } from "../Url";
 
-const url = 'http://localhost:3333'
+// const url = 'http://localhost:3333'
 export default function AdminLangue() {
     const [langues, setLangues] = useState([])
     const [name,setName]= useState('')
@@ -12,7 +13,7 @@ export default function AdminLangue() {
     const [isAdd,setIsAdd]=useState(false)
 
     async function fetchLangue() {
-        const response = await fetch(`${url}/langue`)
+        const response = await fetch(`${BASE_URL}/langue`)
         const data = await response.json()
         setLangues(data)
     }
@@ -22,7 +23,7 @@ export default function AdminLangue() {
     }, [])
 
     async function handleDelete(id) {
-        const response = await fetch(`${url}/langue/${id}`, {
+        const response = await fetch(`${BASE_URL}/langue/${id}`, {
             method: 'DELETE'
         })
 
@@ -38,7 +39,7 @@ export default function AdminLangue() {
 
     async function handleSave(){
         if (name !== "" && level !== ""){
-            const response = await fetch(`${url}/langue`,{
+            const response = await fetch(`${BASE_URL}/langue`,{
                 method:'POST',
                 headers:{
                     'Content-Type':'application/json'
@@ -79,11 +80,11 @@ export default function AdminLangue() {
                 <select 
                     className="select select-secondary w-full max-w-xs" 
                     onChange={(e)=>setLevel(e.target.value)} defaultValue={level}>
-                    <option selected hidden defaultValue="">Choisir le niveau</option>
-                    <option value="Débutant">Débutant</option>
-                    <option value="Intermédiaire">Intermédiaire</option>
-                    <option value="Avancé">Avancé</option>
-                    <option value="Maternel">Maternel</option>
+                    <option hidden defaultValue="Choisir le niveau">Choisir le niveau</option>
+                    <option defaultValue="Débutant">Débutant</option>
+                    <option defaultValue="Intermédiaire">Intermédiaire</option>
+                    <option defaultValue="Avancé">Avancé</option>
+                    <option defaultValue="Maternel">Maternel</option>
                 </select>
 
                 <button onClick={handleSave}>

@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
+import { BASE_URL } from "../Url";
 
-const url = 'http://localhost:3333'
+// const url = 'http://localhost:3333'
 export default function Langue() {
+    console.log(BASE_URL);
     const [langues,setLangues] = useState([])
     async function fetchLangue(){
-        const response = await fetch(`${url}/langue`)
+        const response = await fetch(`${BASE_URL}/langue`)
         const data = await response.json()
         setLangues(data)
     }

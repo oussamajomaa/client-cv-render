@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { TfiSave } from "react-icons/tfi";
+import { BASE_URL } from "../Url";
 
 // const url = "https://api-render-2.onrender.com"
-const url = "http://localhost:3333"
+// const BASE_URL = "http://localhost:3333"
 export default function AdminContact() {
     const [nom, setNom] = useState('')
     const [prenom, setPrenom] = useState('')
@@ -11,7 +12,7 @@ export default function AdminContact() {
     const [adresse, setAdresse] = useState('')
 
     async function fetchContact() {
-        const response = await fetch(`${url}/contact`)
+        const response = await fetch(`${BASE_URL}/contact`)
         const data = await response.json()
         setNom(data[0].nom)
         setPrenom(data[0].prenom)
@@ -27,7 +28,7 @@ export default function AdminContact() {
     function handleSubmit(event) {
         event.preventDefault()
         console.log(tel, email, adresse)
-        fetch(`${url}/contact`, {
+        fetch(`${BASE_URL}/contact`, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"

@@ -20,7 +20,7 @@ export default function Admin() {
 
     function handleSubmit(e) {
         e.preventDefault()
-        if (username === "osm" && password === "osm") {
+        if (username === localStorage.getItem('username') && password === localStorage.getItem('password')) {
             setIsLogged(true)
         } else {
             alert('les identifiants sont incorrects')

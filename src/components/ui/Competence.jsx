@@ -1,12 +1,13 @@
 
 import React, { useEffect, useState } from 'react'
+import { BASE_URL } from "../Url";
 
 // const url = "https://api-render-2.onrender.com"
-const url = "http://localhost:3333"
+// const url = "http://localhost:3333"
 export default function Competence() {
     const [competences,setCompetences] = useState([])
     async function fetchCompetence(){
-        const response = await fetch(`${url}/competence`)
+        const response = await fetch(`${BASE_URL}/competence`)
         const data = await response.json()
         setCompetences(data)
     }

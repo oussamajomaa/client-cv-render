@@ -4,8 +4,9 @@ import { MdDelete } from "react-icons/md";
 import { LiaSaveSolid } from "react-icons/lia";
 import { MdAddBox } from "react-icons/md";
 import { IoCloseCircle } from "react-icons/io5";
+import { BASE_URL } from "../Url";
 
-const BASE_URL = "http://localhost:5555"
+// const BASE_URL = "http://localhost:5555"
 export default function AdminSkill() {
     const [skill, setSkill] = useState("")
     const [add, setAdd] = useState(false)

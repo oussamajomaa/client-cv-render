@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
-const BASE_URL = "http://localhost:5555"
+import { BASE_URL } from "../Url";
+
+// const BASE_URL = "http://localhost:5555"
 export default function Loisir() {
     // const [loisir, setLoisir] = useState([])
     // const fetchLoisir = async () => {

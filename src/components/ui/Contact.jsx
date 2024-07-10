@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react"
 import Profile from "../Profile"
+import { BASE_URL } from "../Url";
 
 // const url = "https://api-render-2.onrender.com"
-const url = "http://localhost:3333"
+// const url = "http://localhost:3333"
 export default function Contact() {
 	const [contact, setContact] = useState([])
 	async function fetchContact() {
-		const response = await fetch(`${url}/contact`)
+		const response = await fetch(`${BASE_URL}/contact`)
 		const data = await response.json()
 		setContact(data)
 	}
