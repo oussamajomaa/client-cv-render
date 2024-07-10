@@ -6,8 +6,6 @@ import { TfiSave } from "react-icons/tfi";
 import { enqueueSnackbar } from 'notistack';
 import { BASE_URL } from "../Url";
 
-// const url = "http://localhost:3333"
-
 export default function AdminCompetence() {
   const [competences, setCompetences] = useState([])
   const [skill, setSkill] = useState('')

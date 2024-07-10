@@ -1,4 +1,4 @@
 
-export const BASE_URL = "https://api-cv-lplb.onrender.com"
+export const BASE_URL = "https://api-render-awof.onrender.com"
 
 
